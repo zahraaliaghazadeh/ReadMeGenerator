@@ -76,6 +76,7 @@ inquirer.prompt([
       const profilePicURL = githubData.avatar_url
       // console.log(profilePicURL);
 
+
       appendFileAsync("newreadme.md", `# ${data.title} \n`).then(function () {
         console.log("Successfully wrote to readme file");
       }).catch(function (err) {
@@ -121,6 +122,16 @@ inquirer.prompt([
       }).catch(function (err) {
         console.log(err);
       });
+      appendFileAsync("newreadme.md", `\n## profile picture\n![profilePicURL](${profilePicURL})`).then(function () {
+        console.log("added the profile picture")
+      }).catch(function (err) {
+        console.log(err);
+      });
+      // appendFileAsync("newreadme.md", `\n## profile picture\n!${<img src="profilePicURL" width="40%">}`).then(function () {
+      //   console.log("added the profile picture")
+      // }).catch(function (err) {
+      //   console.log(err);
+      // });
 
       
 
