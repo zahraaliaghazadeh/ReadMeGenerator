@@ -39,7 +39,7 @@ In order to use this app, first you would need to download the files. Since ther
 
 To-do list:
 * The profile picture should be small like an icon size.
-* improvement to be done 1: Improoving the code format.
+* improvement to be done 1: Improving the code format.
 * improvement to be done 2: posibbly using await for asynchronizing functions.
 
 
