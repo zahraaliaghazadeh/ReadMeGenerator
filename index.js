@@ -11,11 +11,22 @@ const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 const appendFileAsync = util.promisify(fs.appendFile);
 
+
 inquirer.prompt([
   {
     type: "input",
     message: "What is your Github username?",
     name: "username",
+  },
+  {
+    type: "input",
+    message: "What is your email?",
+    name: "email",
+  },
+  {
+    type: "input",
+    message: "What is the link to your Github?",
+    name: "github",
   },
   {
     message: "What is your Project's Title?",
@@ -56,8 +67,8 @@ inquirer.prompt([
     type: "input",
   }
 ]).then(function (data) {
-
   console.log(data);
+
 
   axios
     .get(`https://api.github.com/users/${data.username}`).then(function (githubResponse) {
@@ -65,8 +76,13 @@ inquirer.prompt([
       const profilePicURL = githubData.avatar_url
       // console.log(profilePicURL);
 
-      writeFileAsync("newreadme.md", `# ${data.title} \n`).then(function () {
+      appendFileAsync("newreadme.md", `# ${data.title} \n`).then(function () {
         console.log("Successfully wrote to readme file");
+      }).catch(function (err) {
+        console.log(err);
+      });
+      appendFileAsync("newreadme.md", `\n## Table of contents\n * [Title](#title)\n* [Installation](#installation)\n * [Usage](#usage)\n * [liscence](#liscence)\n* [Contributor](#icontributor)\n* [tests](#tests)\n * [Contact](#contact)`).then(function () {
+        console.log("added the table of contents")
       }).catch(function (err) {
         console.log(err);
       });
@@ -75,36 +91,44 @@ inquirer.prompt([
       }).catch(function (err) {
         console.log(err);
       });
-      appendFileAsync("newreadme.md", `\n## installation\n ${data.installation}`).then(function () {
+      appendFileAsync("newreadme.md", `\n## Installation\n ${data.installation}`).then(function () {
         console.log("added the installation")
       }).catch(function (err) {
         console.log(err);
       });
-      appendFileAsync("newreadme.md", `\n## usage\n ${data.usage}`).then(function () {
+      appendFileAsync("newreadme.md", `\n## Usage\n ${data.usage}`).then(function () {
         console.log("added the usage")
       }).catch(function (err) {
         console.log(err);
       });
-      appendFileAsync("newreadme.md", `\n## license\n ${data.license}`).then(function () {
+      appendFileAsync("newreadme.md", `\n## License\n ${data.license}`).then(function () {
         console.log("added the license")
       }).catch(function (err) {
         console.log(err);
       });
-      appendFileAsync("newreadme.md", `\n## contributer\n ${data.contributer}`).then(function () {
+      appendFileAsync("newreadme.md", `\n## Contributer\n ${data.contributer}`).then(function () {
         console.log("added the contributer")
       }).catch(function (err) {
         console.log(err);
       });
-      appendFileAsync("newreadme.md", `\n## tests\n ${data.tests}`).then(function () {
+      appendFileAsync("newreadme.md", `\n## Tests\n ${data.tests}`).then(function () {
         console.log("added the tests")
       }).catch(function (err) {
         console.log(err);
       });
+      appendFileAsync("newreadme.md", `\n## contact\n If you have any questions, feel free to contact me at ${data.email}\nor[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](${data.github})`).then(function () {
+        console.log("added the contact email")
+      }).catch(function (err) {
+        console.log(err);
+      });
 
-
-
+      
 
     })
+    .catch(function (err) {
+      console.log(err);
+    });
+
 
 })
 
