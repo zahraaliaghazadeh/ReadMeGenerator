@@ -82,7 +82,7 @@ inquirer.prompt([
       }).catch(function (err) {
         console.log(err);
       });
-      appendFileAsync("newreadme.md", `\n## Table of contents\n * [Title](#title)\n* [Installation](#installation)\n * [Usage](#usage)\n * [liscence](#liscence)\n* [Contributor](#icontributor)\n* [tests](#tests)\n * [Contact](#contact)`).then(function () {
+      appendFileAsync("newreadme.md", `\n## Table of contents\n * [Installation](#installation)\n * [Usage](#usage)\n * [liscence](#liscence)\n* [Contributor](#icontributor)\n* [tests](#tests)\n * [Contact](#contact)`).then(function () {
         console.log("added the table of contents")
       }).catch(function (err) {
         console.log(err);
@@ -117,24 +117,17 @@ inquirer.prompt([
       }).catch(function (err) {
         console.log(err);
       });
-      appendFileAsync("newreadme.md", `\n## contact\n If you have any questions, feel free to contact me at ${data.email}\nor[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](${data.github})`).then(function () {
-        console.log("added the contact email")
+      appendFileAsync("newreadme.md", `\n## contact\n<img src="${profilePicURL}" alt="avatar" style="border-radius: 16px" width="30"/>\n If you have any questions, feel free to contact me at ${data.email}\n\n [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](${data.github})`).then(function () {
+        console.log("added the contact email and profile picture")
       }).catch(function (err) {
         console.log(err);
       });
-      appendFileAsync("newreadme.md", `\n## profile picture\n![profilePicURL](${profilePicURL})`).then(function () {
-        console.log("added the profile picture")
-      }).catch(function (err) {
-        console.log(err);
-      });
-      // appendFileAsync("newreadme.md", `\n## profile picture\n!${<img src="profilePicURL" width="40%">}`).then(function () {
+      // appendFileAsync("newreadme.md", `\n## Profile Picture\n<img src="${profilePicURL}" alt="avatar" style="border-radius: 16px" width="30" />`).then(function () {
       //   console.log("added the profile picture")
       // }).catch(function (err) {
       //   console.log(err);
       // });
-
-      
-
+     
     })
     .catch(function (err) {
       console.log(err);
