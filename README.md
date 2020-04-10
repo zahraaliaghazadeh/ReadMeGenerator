@@ -17,7 +17,7 @@ Having a good readMe for your application is essential. If you would like to sav
 
 ## sample
 
-![sample](assets/images/screencastify.gif)
+![sample](assets/images/screencastify2.gif)
 
 
 ## Technologies
@@ -38,7 +38,6 @@ In order to use this app, first you would need to download the files. Since ther
 
 
 To-do list:
-* The profile picture should be small like an icon size.
 * improvement to be done 1: Improving the code format.
 * improvement to be done 2: posibbly using await for asynchronizing functions.
 
@@ -46,7 +45,7 @@ To-do list:
 
 ## Status
 
-ReadMeGenerator is: _finished_, but there will be improvements applied.
+ReadMeGenerator is: _finished_, but there will be future improvements applied.
 
 ## Inspiration
 Having a good ReadMe file can be time consuming. This app is making it easier.
