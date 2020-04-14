@@ -77,56 +77,67 @@ inquirer.prompt([
       // console.log(profilePicURL);
 
 
-      appendFileAsync("newreadme.md", `# ${data.title} \n`).then(function () {
+      writeFileAsync("newreadme.md", `# ${data.title} \n
+      \n## Table of contents\n * [Installation](#installation)\n * [Usage](#usage)\n * [liscence](#liscence)\n* [Contributor](#icontributor)\n* [tests](#tests)\n * [Contact](#contact)
+      \n## description\n > ${data.description}
+      \n## Installation\n ${data.installation}
+      \n## Usage\n ${data.usage}
+      \n## License\n ${data.license}
+      \n## Contributer\n ${data.contributer}
+      \n## Tests\n ${data.tests}
+      \n## contact\n<img src="${profilePicURL}" alt="avatar" style="border-radius: 16px" width="30"/>\n If you have any questions, feel free to contact me at ${data.email}\n\n [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](${data.github})
+      `).then(function () {
         console.log("Successfully wrote to readme file");
       }).catch(function (err) {
         console.log(err);
       });
-      appendFileAsync("newreadme.md", `\n## Table of contents\n * [Installation](#installation)\n * [Usage](#usage)\n * [liscence](#liscence)\n* [Contributor](#icontributor)\n* [tests](#tests)\n * [Contact](#contact)`).then(function () {
-        console.log("added the table of contents")
-      }).catch(function (err) {
-        console.log(err);
-      });
-      appendFileAsync("newreadme.md", `\n## description\n > ${data.description}`).then(function () {
-        console.log("added the description")
-      }).catch(function (err) {
-        console.log(err);
-      });
-      appendFileAsync("newreadme.md", `\n## Installation\n ${data.installation}`).then(function () {
-        console.log("added the installation")
-      }).catch(function (err) {
-        console.log(err);
-      });
-      appendFileAsync("newreadme.md", `\n## Usage\n ${data.usage}`).then(function () {
-        console.log("added the usage")
-      }).catch(function (err) {
-        console.log(err);
-      });
-      appendFileAsync("newreadme.md", `\n## License\n ${data.license}`).then(function () {
-        console.log("added the license")
-      }).catch(function (err) {
-        console.log(err);
-      });
-      appendFileAsync("newreadme.md", `\n## Contributer\n ${data.contributer}`).then(function () {
-        console.log("added the contributer")
-      }).catch(function (err) {
-        console.log(err);
-      });
-      appendFileAsync("newreadme.md", `\n## Tests\n ${data.tests}`).then(function () {
-        console.log("added the tests")
-      }).catch(function (err) {
-        console.log(err);
-      });
-      appendFileAsync("newreadme.md", `\n## contact\n<img src="${profilePicURL}" alt="avatar" style="border-radius: 16px" width="30"/>\n If you have any questions, feel free to contact me at ${data.email}\n\n [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](${data.github})`).then(function () {
-        console.log("added the contact email and profile picture")
-      }).catch(function (err) {
-        console.log(err);
-      });
-      // appendFileAsync("newreadme.md", `\n## Profile Picture\n<img src="${profilePicURL}" alt="avatar" style="border-radius: 16px" width="30" />`).then(function () {
-      //   console.log("added the profile picture")
+
+
+      // appendFileAsync("newreadme.md", `\n## Table of contents\n * [Installation](#installation)\n * [Usage](#usage)\n * [liscence](#liscence)\n* [Contributor](#icontributor)\n* [tests](#tests)\n * [Contact](#contact)`).then(function () {
+      //   console.log("added the table of contents")
       // }).catch(function (err) {
       //   console.log(err);
       // });
+      // appendFileAsync("newreadme.md", `\n## description\n > ${data.description}`).then(function () {
+      //   console.log("added the description")
+      // }).catch(function (err) {
+      //   console.log(err);
+      // });
+      // appendFileAsync("newreadme.md", `\n## Installation\n ${data.installation}`).then(function () {
+      //   console.log("added the installation")
+      // }).catch(function (err) {
+      //   console.log(err);
+      // });
+      // appendFileAsync("newreadme.md", `\n## Usage\n ${data.usage}`).then(function () {
+      //   console.log("added the usage")
+      // }).catch(function (err) {
+      //   console.log(err);
+      // });
+      // appendFileAsync("newreadme.md", `\n## License\n ${data.license}`).then(function () {
+      //   console.log("added the license")
+      // }).catch(function (err) {
+      //   console.log(err);
+      // });
+      // appendFileAsync("newreadme.md", `\n## Contributer\n ${data.contributer}`).then(function () {
+      //   console.log("added the contributer")
+      // }).catch(function (err) {
+      //   console.log(err);
+      // });
+      // appendFileAsync("newreadme.md", `\n## Tests\n ${data.tests}`).then(function () {
+      //   console.log("added the tests")
+      // }).catch(function (err) {
+      //   console.log(err);
+      // });
+      // appendFileAsync("newreadme.md", `\n## contact\n<img src="${profilePicURL}" alt="avatar" style="border-radius: 16px" width="30"/>\n If you have any questions, feel free to contact me at ${data.email}\n\n [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](${data.github})`).then(function () {
+      //   console.log("added the contact email and profile picture")
+      // }).catch(function (err) {
+      //   console.log(err);
+      // });
+      // // appendFileAsync("newreadme.md", `\n## Profile Picture\n<img src="${profilePicURL}" alt="avatar" style="border-radius: 16px" width="30" />`).then(function () {
+      // //   console.log("added the profile picture")
+      // // }).catch(function (err) {
+      // //   console.log(err);
+      // // });
      
     })
     .catch(function (err) {
